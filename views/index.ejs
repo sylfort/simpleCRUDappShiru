@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/3bfd3ce9e5.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Albums of the Year</title>
+  </head>
+  <body>
+    <h1>Top Albums</h1>
+    <ul class="albums">
+      <% for(let i = 0; i < info.length; i++){%>
+      <li class="album">
+        <span><%= info[i].albumname %></span>
+        <br />
+        <span><%= info[i].artistname %></span>
+        <br />
+        <span><img src="<%= info[i].photo %>" /></span>
+        <br />
+        <span><%= info[i].likes %></span>
+        <br />
+        <span class="thumbs-up"><i class="fa-solid fa-thumbs-up"></i></span>
+        <span class="trash"><i class="fa-solid fa-trash-can"></i></span>
+      </li>
+      <% } %>
+    </ul>
+
+    <h2>Add an album, artist, and photo!</h2>
+
+    <form action="/addAlbum" method="POST">
+      <input type="text" placeholder="album title..." name="albumname" />
+      <input type="text" placeholder="artist..." name="artistname" />
+      <input type="url" placeholder="add photo URL" name="photo" />
+      <input type="submit" />
+    </form>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
